@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Photo Editor
+
+  Created by Igor on 27.04.2024.
+  
+*/
+"SignIn" = "Sign In";
+"SignUp" = "Sign Up";
+"ForgetPassword" = "Забыли пароль?";
+"Email" = "Введите email";
+"Password" = "Пароль";
+"Send" = "Отправить";
+"PasswordReset" = "Смена пароля";
+"EmailInstruction" = "Забыли пароль? Введите email и мы пришлем инструкции для смены пароля";
+"OR" = "ИЛИ";

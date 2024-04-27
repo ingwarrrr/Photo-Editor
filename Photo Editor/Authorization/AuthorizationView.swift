@@ -11,45 +11,46 @@ struct AuthorizationView : View {
     @EnvironmentObject var viewModel: AuthorizationViewModel
     @State var index = 0
     
-    var body: some View{
-        GeometryReader{_ in
-            VStack{
-                ZStack{
+    var body: some View {
+        GeometryReader { _ in
+            VStack {
+                ZStack {
                     SignUpView(index: self.$index)
                         .zIndex(Double(self.index))
                     SignInView(index: self.$index)
                 }
                 
-                HStack(spacing: 15){
+                HStack(spacing: 15) {
                     Rectangle()
-                        .fill(Color("Color1"))
+                        .fill(.yellow)
                         .frame(height: 1)
                     
-                    Text("OR")
+                    Text(Strings.or)
                     
                     Rectangle()
-                        .fill(Color("Color1"))
+                        .fill(.yellow)
                         .frame(height: 1)
                 }
                 .padding(.horizontal, 30)
                 .padding(.top, 50)
                 
-                HStack(spacing: 25){
+                HStack(spacing: 25) {
                     Button(action: {
                         viewModel.signInWithGoogle()
                     }) {
-                        
-                        Image(systemName: "g.circle")
+                        Image(systemName: Strings.gCircle)
                             .resizable()
                             .renderingMode(.original)
                             .frame(width: 50, height: 50)
                             .clipShape(Circle())
+                            .foregroundColor(.yellow)
                     }
                 }
                 .padding(.top, 30)
             }
+            .padding(.top, 60)
             .padding(.vertical)
         }
-        .background(Color("Color").edgesIgnoringSafeArea(.all))
+        .background(Color.background.edgesIgnoringSafeArea(.all))
     }
 }

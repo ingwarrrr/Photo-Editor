@@ -22,13 +22,13 @@ struct SignUpView: View {
             
                     VStack(spacing: 10){
                         
-                        Text("Sign Up")
-                            .foregroundColor(self.index == 1 ? .white : .gray)
+                        Text(Strings.signUp)
+                            .foregroundColor(self.index == 1 ? Color.button : Color.text)
                             .font(.title)
                             .fontWeight(.bold)
                         
                         Capsule()
-                            .fill(self.index == 1 ? Color.blue : Color.clear)
+                            .fill(self.index == 1 ? Color.yellow : Color.clear)
                             .frame(width: 100, height: 5)
                     }
                 }
@@ -37,10 +37,11 @@ struct SignUpView: View {
                 VStack{
                     HStack(spacing: 15){
                         
-                        Image(systemName: "envelope.fill")
-                            .foregroundColor(Color("Color1"))
+                        Image(systemName: Strings.envelopeFill)
+                            .foregroundColor(Color.background)
                         
-                        TextField("Email Address", text: self.$email)
+                        TextField(Strings.email, text: self.$email)
+                            .textContentType(.emailAddress)
                     }
                     
                     Divider().background(Color.white.opacity(0.5))
@@ -50,10 +51,10 @@ struct SignUpView: View {
                 
                 VStack{
                     HStack(spacing: 15){
-                        Image(systemName: "eye.slash.fill")
-                            .foregroundColor(Color("Color1"))
+                        Image(systemName: Strings.eyeSlashFill)
+                            .foregroundColor(Color.background)
                         
-                        SecureField("Password", text: self.$pass)
+                        SecureField(Strings.password, text: self.$pass)
                     }
                     
                     Divider().background(Color.white.opacity(0.5))
@@ -64,10 +65,10 @@ struct SignUpView: View {
                 VStack{
                     HStack(spacing: 15){
                         
-                        Image(systemName: "eye.slash.fill")
-                            .foregroundColor(Color("Color1"))
+                        Image(systemName: Strings.eyeSlashFill)
+                            .foregroundColor(Color.background)
                         
-                        SecureField("Password", text: self.$repass)
+                        SecureField(Strings.password, text: self.$repass)
                     }
                     
                     Divider().background(Color.white.opacity(0.5))
@@ -77,27 +78,21 @@ struct SignUpView: View {
             }
             .padding()
             .padding(.bottom, 65)
-            .background(Color("Color2"))
+            .background(.white)
             .clipShape(leftSideCurve())
             .contentShape(leftSideCurve())
-            .shadow(color: Color.black.opacity(0.3), radius: 5, x: 0, y: -5)
+            .modifier(SignViewStyle())
             .onTapGesture {
                 self.index = 1
             }
-            .cornerRadius(35)
-            .padding(.horizontal,20)
             
             Button(action: {
-                viewModel.signUp(with: email, password: pass)
+                if pass == repass {
+                    viewModel.signUp(with: email, password: pass)
+                }
             }) {
-                Text("SIGNUP")
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                    .padding(.vertical)
-                    .padding(.horizontal, 50)
-                    .background(Color("Color1"))
-                    .clipShape(Capsule())
-                    .shadow(color: Color.white.opacity(0.1), radius: 5, x: 0, y: 5)
+                Text(Strings.signUp)
+                    .modifier(SignButtonTextStyle())
             }
             .offset(y: 25)
             .opacity(self.index == 1 ? 1 : 0)

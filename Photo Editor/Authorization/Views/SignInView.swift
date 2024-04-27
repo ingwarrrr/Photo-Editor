@@ -9,8 +9,9 @@ import SwiftUI
 
 struct SignInView : View {
     @EnvironmentObject var viewModel: AuthorizationViewModel
-    @State var email = ""
-    @State var pass = ""
+    @State private var email = ""
+    @State private var pass = ""
+    @State private var showResetPassvordView = false
     @Binding var index : Int
     
     var body: some View{
@@ -19,13 +20,13 @@ struct SignInView : View {
                 HStack{
                     VStack(spacing: 10){
                         
-                        Text("Sign In")
-                            .foregroundColor(self.index == 0 ? .white : .gray)
+                        Text(Strings.signIn)
+                            .foregroundColor(self.index == 1 ? Color.button : Color.text)
                             .font(.title)
                             .fontWeight(.bold)
                         
                         Capsule()
-                            .fill(self.index == 0 ? Color.blue : Color.clear)
+                            .fill(self.index == 0 ? Color.yellow : Color.clear)
                             .frame(width: 100, height: 5)
                     }
                     
@@ -35,10 +36,11 @@ struct SignInView : View {
                 
                 VStack{
                     HStack(spacing: 15){
-                        Image(systemName: "envelope.fill")
-                            .foregroundColor(Color("Color1"))
+                        Image(systemName: Strings.envelopeFill)
+                            .foregroundColor(Color.background)
                         
-                        TextField("Email Address", text: self.$email)
+                        TextField(Strings.email, text: self.$email)
+                            .textContentType(.emailAddress)
                     }
                     
                     Divider().background(Color.white.opacity(0.5))
@@ -48,10 +50,10 @@ struct SignInView : View {
                 
                 VStack{
                     HStack(spacing: 15){
-                        Image(systemName: "eye.slash.fill")
-                            .foregroundColor(Color("Color1"))
+                        Image(systemName: Strings.eyeSlashFill)
+                            .foregroundColor(Color.background)
                         
-                        SecureField("Password", text: self.$pass)
+                        SecureField(Strings.password, text: self.$pass)
                     }
                     
                     Divider().background(Color.white.opacity(0.5))
@@ -63,10 +65,13 @@ struct SignInView : View {
                     Spacer(minLength: 0)
                     
                     Button(action: {
-                        
+                        showResetPassvordView.toggle()
                     }) {
-                        Text("Forget Password?")
-                            .foregroundColor(Color.white.opacity(0.6))
+                        Text(Strings.forgetPassword)
+                            .foregroundColor(Color.text)
+                    }
+                    .sheet(isPresented: $showResetPassvordView) {
+                        ResetPasswordView()
                     }
                 }
                 .padding(.horizontal)
@@ -74,28 +79,21 @@ struct SignInView : View {
             }
             .padding()
             .padding(.bottom, 65)
-            .background(Color("Color2"))
+            .background(.white)
             .clipShape(rightSideCurve())
             .contentShape(rightSideCurve())
-            .shadow(color: Color.black.opacity(0.3), radius: 5, x: 0, y: -5)
+            .modifier(SignViewStyle())
             .onTapGesture {
                 self.index = 0
             }
-            .cornerRadius(35)
-            .padding(.horizontal,20)
+
             
             Button(action: {
                 viewModel.signOut()
                 viewModel.signIn(with: email, password: pass)
             }) {
-                Text("LOGIN")
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                    .padding(.vertical)
-                    .padding(.horizontal, 50)
-                    .background(Color("Color1"))
-                    .clipShape(Capsule())
-                    .shadow(color: Color.white.opacity(0.1), radius: 5, x: 0, y: 5)
+                Text(Strings.signIn)
+                    .modifier(SignButtonTextStyle())
             }
             .offset(y: 25)
             .opacity(self.index == 0 ? 1 : 0)
