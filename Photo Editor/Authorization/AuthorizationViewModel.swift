@@ -36,6 +36,14 @@ class AuthorizationViewModel: ObservableObject {
             }
         }
     }
+    
+    func checkUserAuthorization() -> SignInState {
+        if Auth.auth().currentUser != nil {
+            return .signedIn
+        } else {
+            return .signedOut
+        }
+    }
 
     func signIn(with email: String, password: String) {
         // Вход пользователя
@@ -70,18 +78,6 @@ class AuthorizationViewModel: ObservableObject {
             }
         }
     }
-    
-    func signOut() {
-        GIDSignIn.sharedInstance.signOut()
-        
-        do {
-            try Auth.auth().signOut()
-            state = .signedOut
-            print("SignOut user")
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
 
     func authenticate(for user: GIDGoogleUser?, with error: Error?) {
         if let error = error {
@@ -102,6 +98,18 @@ class AuthorizationViewModel: ObservableObject {
                 state = .signedIn
                 print("SignIn user")
             }
+        }
+    }
+    
+    func signOut() {
+        GIDSignIn.sharedInstance.signOut()
+        
+        do {
+            try Auth.auth().signOut()
+            state = .signedOut
+            print("SignOut user")
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }

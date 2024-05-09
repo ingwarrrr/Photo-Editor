@@ -8,14 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		783502992BD178EF00632A28 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783502982BD178EF00632A28 /* ResetPasswordView.swift */; };
+		783C54742BED78B00073A2AE /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C54732BED78AF0073A2AE /* DrawingView.swift */; };
+		783C54762BED79740073A2AE /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C54752BED79740073A2AE /* CanvasView.swift */; };
+		783C54782BED899D0073A2AE /* TextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C54772BED899D0073A2AE /* TextBox.swift */; };
 		78670A082BCEA95700EA7AF0 /* Photo_EditorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78670A072BCEA95700EA7AF0 /* Photo_EditorApp.swift */; };
 		78670A0A2BCEA95700EA7AF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78670A092BCEA95700EA7AF0 /* ContentView.swift */; };
 		78670A0C2BCEA96500EA7AF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78670A0B2BCEA96500EA7AF0 /* Assets.xcassets */; };
 		78670A0F2BCEA96500EA7AF0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78670A0E2BCEA96500EA7AF0 /* Preview Assets.xcassets */; };
+		78950C672BEA6879008BD844 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78950C662BEA6879008BD844 /* PhotoView.swift */; };
+		78950C692BEA692F008BD844 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78950C682BEA692F008BD844 /* ImagePickerView.swift */; };
+		78950C6B2BEA7E38008BD844 /* DrawingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78950C6A2BEA7E38008BD844 /* DrawingViewModel.swift */; };
 		78A4F2352BDCEFC700431930 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A4F2342BDCEFC700431930 /* Date+Extensions.swift */; };
 		78A4F2392BDCF11800431930 /* SignButtonTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A4F2382BDCF11800431930 /* SignButtonTextStyle.swift */; };
 		78A4F23B2BDCF4FD00431930 /* SignViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A4F23A2BDCF4FD00431930 /* SignViewStyle.swift */; };
-		78A4F23D2BDCF83000431930 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A4F23C2BDCF83000431930 /* Shape.swift */; };
+		78A4F23D2BDCF83000431930 /* SideCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A4F23C2BDCF83000431930 /* SideCurveView.swift */; };
 		78A4F2402BDD01BE00431930 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A4F23F2BDD01BD00431930 /* Strings.swift */; };
 		78A4F2422BDD045C00431930 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78A4F2412BDD045C00431930 /* Localizable.strings */; };
 		78A4F2452BDD11E800431930 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A4F2442BDD11E800431930 /* Color+Extension.swift */; };
@@ -31,15 +37,21 @@
 
 /* Begin PBXFileReference section */
 		783502982BD178EF00632A28 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		783C54732BED78AF0073A2AE /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
+		783C54752BED79740073A2AE /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		783C54772BED899D0073A2AE /* TextBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBox.swift; sourceTree = "<group>"; };
 		78670A042BCEA95700EA7AF0 /* Photo Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photo Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78670A072BCEA95700EA7AF0 /* Photo_EditorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo_EditorApp.swift; sourceTree = "<group>"; };
 		78670A092BCEA95700EA7AF0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		78670A0B2BCEA96500EA7AF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78670A0E2BCEA96500EA7AF0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		78950C662BEA6879008BD844 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		78950C682BEA692F008BD844 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		78950C6A2BEA7E38008BD844 /* DrawingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewModel.swift; sourceTree = "<group>"; };
 		78A4F2342BDCEFC700431930 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		78A4F2382BDCF11800431930 /* SignButtonTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignButtonTextStyle.swift; sourceTree = "<group>"; };
 		78A4F23A2BDCF4FD00431930 /* SignViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewStyle.swift; sourceTree = "<group>"; };
-		78A4F23C2BDCF83000431930 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		78A4F23C2BDCF83000431930 /* SideCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideCurveView.swift; sourceTree = "<group>"; };
 		78A4F23F2BDD01BD00431930 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		78A4F2412BDD045C00431930 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		78A4F2442BDD11E800431930 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -84,14 +96,14 @@
 		78670A062BCEA95700EA7AF0 /* Photo Editor */ = {
 			isa = PBXGroup;
 			children = (
-				78A4F23E2BDD012F00431930 /* Resorces */,
 				78BF71762BCFF77D008F275F /* Photo-Editor-Info.plist */,
 				78BF71772BCFFA84008F275F /* GoogleService-Info.plist */,
 				78670A092BCEA95700EA7AF0 /* ContentView.swift */,
-				78A4F2332BDCEF0B00431930 /* Extensions */,
-				78A4F2372BDCF07900431930 /* Modifiers */,
 				78670A152BCEAAB700EA7AF0 /* Authorization */,
 				78670A172BCEAC0100EA7AF0 /* PhotoEditor */,
+				78A4F2372BDCF07900431930 /* Modifiers */,
+				78A4F2332BDCEF0B00431930 /* Extensions */,
+				78A4F23E2BDD012F00431930 /* Resorces */,
 				78670A072BCEA95700EA7AF0 /* Photo_EditorApp.swift */,
 				78670A0B2BCEA96500EA7AF0 /* Assets.xcassets */,
 				78670A0D2BCEA96500EA7AF0 /* Preview Content */,
@@ -120,15 +132,44 @@
 		78670A172BCEAC0100EA7AF0 /* PhotoEditor */ = {
 			isa = PBXGroup;
 			children = (
+				78950C652BEA6848008BD844 /* Views */,
+				78950C642BEA682B008BD844 /* PhotoViewModel */,
+				78950C632BEA6823008BD844 /* PhotoModel */,
 			);
 			path = PhotoEditor;
+			sourceTree = "<group>";
+		};
+		78950C632BEA6823008BD844 /* PhotoModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PhotoModel;
+			sourceTree = "<group>";
+		};
+		78950C642BEA682B008BD844 /* PhotoViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				78950C6A2BEA7E38008BD844 /* DrawingViewModel.swift */,
+			);
+			path = PhotoViewModel;
+			sourceTree = "<group>";
+		};
+		78950C652BEA6848008BD844 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				78950C662BEA6879008BD844 /* PhotoView.swift */,
+				783C54732BED78AF0073A2AE /* DrawingView.swift */,
+				78950C682BEA692F008BD844 /* ImagePickerView.swift */,
+				783C54752BED79740073A2AE /* CanvasView.swift */,
+				783C54772BED899D0073A2AE /* TextBox.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		78A4F2332BDCEF0B00431930 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				78A4F2342BDCEFC700431930 /* Date+Extensions.swift */,
-				78A4F23C2BDCF83000431930 /* Shape.swift */,
 				78A4F2442BDD11E800431930 /* Color+Extension.swift */,
 			);
 			path = Extensions;
@@ -158,6 +199,7 @@
 				78BF717B2BCFFEB9008F275F /* SignInView.swift */,
 				78BF717F2BD02D46008F275F /* SignUpView.swift */,
 				783502982BD178EF00632A28 /* ResetPasswordView.swift */,
+				78A4F23C2BDCF83000431930 /* SideCurveView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,14 +290,20 @@
 				78A4F23B2BDCF4FD00431930 /* SignViewStyle.swift in Sources */,
 				78A4F2392BDCF11800431930 /* SignButtonTextStyle.swift in Sources */,
 				78A4F2352BDCEFC700431930 /* Date+Extensions.swift in Sources */,
+				78950C692BEA692F008BD844 /* ImagePickerView.swift in Sources */,
 				78670A082BCEA95700EA7AF0 /* Photo_EditorApp.swift in Sources */,
 				78BF717C2BCFFEB9008F275F /* SignInView.swift in Sources */,
 				783502992BD178EF00632A28 /* ResetPasswordView.swift in Sources */,
-				78A4F23D2BDCF83000431930 /* Shape.swift in Sources */,
+				783C54762BED79740073A2AE /* CanvasView.swift in Sources */,
+				78A4F23D2BDCF83000431930 /* SideCurveView.swift in Sources */,
+				78950C6B2BEA7E38008BD844 /* DrawingViewModel.swift in Sources */,
 				78BF717E2BD02C26008F275F /* AuthorizationView.swift in Sources */,
+				78950C672BEA6879008BD844 /* PhotoView.swift in Sources */,
 				78BF71802BD02D46008F275F /* SignUpView.swift in Sources */,
+				783C54742BED78B00073A2AE /* DrawingView.swift in Sources */,
 				78A4F2402BDD01BE00431930 /* Strings.swift in Sources */,
 				78BF717A2BCFFC29008F275F /* AuthorizationViewModel.swift in Sources */,
+				783C54782BED899D0073A2AE /* TextBox.swift in Sources */,
 				78A4F2452BDD11E800431930 /* Color+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,8 +11,8 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: AuthorizationViewModel
     
     var body: some View {
-        switch viewModel.state {
-        case .signedIn: AuthorizationView()
+        switch viewModel.checkUserAuthorization() {
+        case .signedIn: PhotoView()
         case .signedOut: AuthorizationView()
         }
     }

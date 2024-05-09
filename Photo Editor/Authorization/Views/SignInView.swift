@@ -89,7 +89,6 @@ struct SignInView : View {
 
             
             Button(action: {
-                viewModel.signOut()
                 viewModel.signIn(with: email, password: pass)
             }) {
                 Text(Strings.signIn)

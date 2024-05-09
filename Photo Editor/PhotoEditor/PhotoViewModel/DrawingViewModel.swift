@@ -6,15 +6,34 @@
 //
 
 import SwiftUI
+import PencilKit
 
-struct DrawingViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+class DrawingViewModel: ObservableObject {
+    @Published var showImagePicker = false
+    @Published var image: UIImage?
+    
+    @Published var canvas = PKCanvasView()
+    
+    @Published var toolPicker = PKToolPicker()
+    
+    @Published var textBoxes: [TextBox] = []
+    @Published var addNewBox = false
+    
+    @Published var currentIndex: Int = 0
+    
+    func calcelImageEditing() {
+        image = nil
+        canvas = PKCanvasView()
     }
-}
-
-struct DrawingViewModel_Previews: PreviewProvider {
-    static var previews: some View {
-        DrawingViewModel()
+    
+    func cancelTextView() {
+        toolPicker.setVisible(true, forFirstResponder: canvas)
+        canvas.becomeFirstResponder()
+        
+        withAnimation {
+            addNewBox = false
+        }
+        
+        textBoxes.removeLast()
     }
 }
