@@ -61,13 +61,15 @@ struct PhotoView: View {
                     .ignoresSafeArea()
                 
                 TextField("Type Here", text: $viewModel.textBoxes[viewModel.currentIndex].text)
-                    .font(.system(size: 35))
+                    .font(.system(size: 35, weight: viewModel.textBoxes[viewModel.currentIndex].isBold ? .bold : .regular))
                     .foregroundColor(viewModel.textBoxes[viewModel.currentIndex].textColor)
                     .colorScheme(.dark)
                     .padding()
                 
                 HStack {
                     Button {
+                        viewModel.textBoxes[viewModel.currentIndex].isAdded = true
+                        
                         viewModel.toolPicker.setVisible(true, forFirstResponder: viewModel.canvas)
                         viewModel.canvas.becomeFirstResponder()
                         
@@ -81,6 +83,8 @@ struct PhotoView: View {
                             .padding()
                     }
                     
+                    Spacer()
+                    
                     Button {
                         viewModel.cancelTextView()
                     } label: {
@@ -91,7 +95,17 @@ struct PhotoView: View {
                     }
                 }
                 .overlay(
-                    ColorPicker("", selection: $viewModel.textBoxes[viewModel.currentIndex].textColor)
+                    HStack(spacing: 15) {
+                        ColorPicker("", selection: $viewModel.textBoxes[viewModel.currentIndex].textColor).labelsHidden()
+                        
+                        Button {
+                            viewModel.textBoxes[viewModel.currentIndex].isBold.toggle()
+                        } label: {
+                            Text(viewModel.textBoxes[viewModel.currentIndex].isBold ? "Normal" : "Bold")
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                        }
+                    }
                 )
                 .frame(maxHeight: .infinity, alignment: .top)
             }
@@ -99,6 +113,9 @@ struct PhotoView: View {
         .sheet(isPresented: $viewModel.showImagePicker) {
             ImagePickerView(image: $viewModel.image, showPicker: $viewModel.showImagePicker)
         }
+        .alert(isPresented: $viewModel.showAlert, content: {
+            Alert(title: Text("Message"), message: Text(viewModel.message), dismissButton: .destructive(Text("Ok")))
+        })
     }
 }
 

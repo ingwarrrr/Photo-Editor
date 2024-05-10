@@ -13,7 +13,13 @@ struct DrawingView: View {
     var body: some View {
         ZStack {
             GeometryReader { proxy -> AnyView in
-                let size = proxy.frame(in: .global).size
+                let size = proxy.frame(in: .global)
+                
+                DispatchQueue.main.async {
+                    if viewModel.rect == .zero {
+                        viewModel.rect = size
+                    }
+                }
                 
                 return AnyView(
                     ZStack {
@@ -21,7 +27,7 @@ struct DrawingView: View {
                             canvas: $viewModel.canvas,
                             image: $viewModel.image,
                             toolPicker: $viewModel.toolPicker,
-                            rect: size
+                            rect: size.size
                         )
                         
                         ForEach(viewModel.textBoxes) { box in
@@ -38,10 +44,18 @@ struct DrawingView: View {
                                         width: lastOffset.width + current.width,
                                         height: lastOffset.height + current.height)
                                     
-                                    viewModel.textBoxes[getIndex(textBox: box)].lastOffset = newTranslation
+                                    viewModel.textBoxes[getIndex(textBox: box)].offset = newTranslation
                                 }).onEnded({ value in
                                     viewModel.textBoxes[getIndex(textBox: box)].lastOffset = value.translation
                                 }))
+                                .onLongPressGesture {
+                                    viewModel.toolPicker.setVisible(false, forFirstResponder: viewModel.canvas)
+                                    viewModel.canvas.resignFirstResponder()
+                                    viewModel.currentIndex = getIndex(textBox: box)
+                                    withAnimation {
+                                        viewModel.addNewBox = true
+                                    }
+                                }
                         }
                     }
                 )
@@ -50,7 +64,7 @@ struct DrawingView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    
+                    viewModel.saveImage()
                 } label: {
                     Text("Save")
                 }
